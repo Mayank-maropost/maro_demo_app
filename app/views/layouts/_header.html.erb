@@ -4,10 +4,21 @@
       <a class="navbar-brand" href="#">Demo Project</a>
     </div>
     <ul class="nav navbar-nav">
-      <li class="active"><a href="#">Gallery</a></li>
-      <li><a href="#">Aboutus</a></li>
-      <li><a href="#">Contactus</a></li>
+      <% if user_signed_in? %>   
+        <li class="active"><a href="#">Gallery</a></li>
+      <% end %>
+      <li><a href="/static_content/about_us">Aboutus</a></li>
+      <li><a href="/static_content/contact_us_form">Contactus</a></li>
     </ul>
-    <%= link_to "Sign out", destroy_user_session_path, method: :delete , class: "btn btn-danger navbar-btn" %>
+    <% if user_signed_in? %>  
+      <div align="right">
+        <%= link_to "Sign out", destroy_user_session_path, method: :delete , class: "btn btn-danger navbar-btn" %>
+      </div>    
+    <% else %>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="/users/sign_up"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+        <li><a href="/users/sign_in"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+      </ul>
+    <% end%>
   </div>
 </nav>

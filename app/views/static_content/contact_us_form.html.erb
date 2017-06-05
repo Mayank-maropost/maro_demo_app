@@ -1,0 +1,26 @@
+<div class="row">
+  <div class="col col-md-8">
+  	 <%= form_for :contact_us do |f| %>
+	  <div class="form-group">
+	    <%= f.label :name, "Name:" %>
+	    <%= f.text_field :name, class: "form-control", placeholder: "Enter Name" %>
+	  </div>
+	  <div class="form-group">
+	   	<%= f.label :email, "Email address:" %>
+	    <%= f.email_field :email, autofocus: true, class: "form-control", placeholder: "Enter email" %>
+	  </div>
+	  <div class="form-group">
+	   	<%= f.label :mobile_no, "Mobile No:" %>
+	    <%= f.text_field :mobile_no,  class: "form-control", placeholder: "Enter mobile no" %>
+	  </div>
+	  <div class="form-group">
+	   	<%= f.label :description, "Description:" %>
+	    <%= f.text_area :description,  class: "form-control", placeholder: "Enter Description",   :rows => 10, id: "text_area_width" %>
+	  </div>
+	  <button type="submit" class="btn btn-default">Submit</button>
+	<% end%>
+  </div>
+  <div class="col-6 col-md-4">
+
+  </div>
+</div>

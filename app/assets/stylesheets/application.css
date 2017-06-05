@@ -13,3 +13,6 @@
  *= require_tree .
  *= require_self
  */
+#text_area_width{
+	width: 576px;
+}

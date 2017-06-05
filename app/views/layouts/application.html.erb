@@ -15,12 +15,16 @@
 
    
  	<body>
-    <% if user_signed_in? %>	
   		<%= render partial: "layouts/header" %>
-  	<%end%>
    	<div class="container">
-        <%= yield %>
-        <%#= render 'layouts/footer' %>
+      <% flash.each do |name, msg| %>
+        <div class="alert alert-info alert-dismissable">
+          <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
+           </strong><%= msg %>
+        </div>
+      <% end %>
+      <%= yield %>
+        <%= render 'layouts/footer' %>
     </div>		 
   </body>
 </html>
