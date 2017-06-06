@@ -1,0 +1,47 @@
+<div class="row">
+  <div class="col col-md-8">
+  	 <%= form_for :contact_us do |f| %>
+	  <div class="form-group">
+	    <%= f.label :name, "Name:" %>
+	    <%= f.text_field :name, class: "form-control", placeholder: "Enter Name" %>
+	  </div>
+	  <div class="form-group">
+	   	<%= f.label :email, "Email address:" %>
+	    <%= f.email_field :email, autofocus: true, class: "form-control", placeholder: "Enter email" %>
+	  </div>
+	  <div class="form-group">
+	   	<%= f.label :mobile_no, "Mobile No:" %>
+	    <%= f.text_field :mobile_no,  class: "form-control", placeholder: "Enter mobile no" %>
+	  </div>
+	  <div class="form-group">
+	   	<%= f.label :description, "Description:" %>
+	    <%= f.text_area :description,  class: "form-control", placeholder: "Enter Description",   :rows => 10, id: "text_area_width" %>
+	  </div>
+	  <div class="form-group" align="center">
+	  	<button type="submit" class="btn btn-default">Submit</button>
+	  </div>	
+	<% end%>
+  </div>
+  <div class="col-6 col-md-4">
+  	<div id="map">
+
+  	</div>	
+  </div>
+</div>
+
+
+<script type="text/javascript">
+	alert("hii");
+	displayMapAt(28,77,8)
+	function displayMapAt(lat, lon, zoom) {
+        $("#map")
+                .html(
+                        "<iframe id=\"map_frame\" "
+                                + "width=\"100%\" height=\"500px\" frameborder=\"0\" scrolling=\"no\" marginheight=\"0\" marginwidth=\"0\" "
+                                + "src=\"https://www.google.sk/maps?f=q&amp;output=embed&amp;source=s_q&amp;hl=sk&amp;geocode=&amp;q=https:%2F%2Fwww.google.sk%2Fmaps%2Fms%3Fauthuser%3D0%26vps%3D5%26hl%3Dsk%26ie%3DUTF8%26oe%3DUTF8%26msa%3D0%26output%3Dkml%26msid%3D205427380680792264646.0004fe643d107ef29299a&amp;aq=&amp;sll=48.669026,19.699024&amp;sspn=4.418559,10.821533&amp;ie=UTF8&amp;ll="
+                                + lat + "," + lon
+                                + "&amp;spn=0.199154,0.399727&amp;t=m&amp;z="
+                                + zoom + "\"" + "></iframe>");
+
+    }
+</script>

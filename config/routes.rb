@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   	collection do 
   		get 'about_us'
       get 'contact_us_form'
+      post 'contact_us_create'
   	end	
   end	
 end

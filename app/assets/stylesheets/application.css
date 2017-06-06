@@ -14,5 +14,8 @@
  *= require_self
  */
 #text_area_width{
-	width: 576px;
+	width: 750px;
+}
+.error{
+	color: red;
 }

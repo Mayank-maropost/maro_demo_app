@@ -8,4 +8,11 @@ class UserMailer < ApplicationMailer
       mail(to: @user.email, subject: 'Welcome to My Demo app')
    end
 
+   def contact_us_mail name,email,desc
+   		@name= name
+   		@email= email
+   		@desc= desc
+   		mail(to: @email, subject: 'Contact Us')
+   end
+
 end

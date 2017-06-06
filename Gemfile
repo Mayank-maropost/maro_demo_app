@@ -34,8 +34,10 @@ gem 'jbuilder', '~> 2.5'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
+gem 'jquery-ui-rails'
 gem 'devise'
 gem 'activeadmin', github: 'activeadmin'
+gem 'jquery-validation-rails'
 
 
 group :development, :test do
