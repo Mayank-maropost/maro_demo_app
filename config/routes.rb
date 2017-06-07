@@ -6,7 +6,11 @@ Rails.application.routes.draw do
   devise_for :users 
   #devise_for :users, path: '', path_names: { sign_in: 'login', sign_out: 'logout'}
   resources :dashboard, only: [:new] 
-  resources :images 
+  resources :images do
+    collection do
+      get 'get_image_detail'
+    end  
+  end  
   resources :static_content, only: [:new] do
   	collection do 
   		get 'about_us'
