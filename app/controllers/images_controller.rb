@@ -32,8 +32,18 @@ class ImagesController < ApplicationController
 			render :json=> { photo_name: @photo.name }
 		end
 
+		def edit
+			@photo= Photo.find_by(id: params[:id])
+		end
+
 		def update
-			p "=============update"
+			 @photo= Photo.find_by(id: params[:id])
+			 @photo.assign_attributes(photo_params)	
+		   if @photo.valid? && @photo.save
+ 		      redirect_to images_path, notice: "Photo Updated Successfully!"
+	    else
+				  redirect_to images_path, notice: @photo.errors.full_messages.first
+			end
 		end
 
 		private
