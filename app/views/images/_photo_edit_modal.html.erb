@@ -11,7 +11,7 @@
           <%= form_for photo, :url => {:action => "update", :id => photo.id, :controller => "images"}, html:{:multipart => true, id: "photo_edit_form"} do |f| %>
 			  <div class="form-group">
 			    <%= f.label :name, "Name"%>
-			    <%= f.text_field :name, class: "form-control", id: "edit_image_name" %>
+			    <%= f.text_field :name, class: "form-control image_name", id: "edit_image_name" %>
 			  </div>
 			  <div class="form-group">
 			    <%= f.label :select_file, "Choose file" %>

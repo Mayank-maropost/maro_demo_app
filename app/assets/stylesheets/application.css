@@ -19,3 +19,14 @@
 .error{
 	color: red;
 }
+.custom-margin{
+    margin-right: 150px;
+}
+
+footer {
+    bottom: 0;
+    height: 100px;
+    left: 0;
+    position: absolute;
+    width: 100%;
+}

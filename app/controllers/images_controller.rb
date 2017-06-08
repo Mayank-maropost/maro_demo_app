@@ -6,7 +6,7 @@ class ImagesController < ApplicationController
 		end
 
 		def index
-			@photos= Photo.all
+			@photos= Photo.all.page(params[:page]).per(6)
 		end
 
 		def create
@@ -27,11 +27,7 @@ class ImagesController < ApplicationController
 		  redirect_to images_path
 		end
 
-		def get_image_detail
-			@photo= Photo.find_by(id: params[:id])
-			render :json=> { photo_name: @photo.name }
-		end
-
+		
 		def edit
 			@photo= Photo.find_by(id: params[:id])
 		end
@@ -44,6 +40,22 @@ class ImagesController < ApplicationController
 	    else
 				  redirect_to images_path, notice: @photo.errors.full_messages.first
 			end
+		end
+
+		def get_image_detail
+			@photo= Photo.find_by(id: params[:id])
+			render :json=> { photo_name: @photo.name }
+		end
+
+		def check_image_name
+			@photo = Photo.find_by_name(params[:name])
+			if @photo
+				p "=====if"
+					render :json=> { photo_present: true }
+			else
+				p "else===="
+					render :json=> { photo_present: false }
+			end			
 		end
 
 		private

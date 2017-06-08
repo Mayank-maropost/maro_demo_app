@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   resources :images do
     collection do
       get 'get_image_detail'
+      get 'check_image_name'
     end  
   end  
   resources :static_content, only: [:new] do

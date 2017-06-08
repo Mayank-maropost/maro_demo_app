@@ -243,6 +243,7 @@ DEPENDENCIES
   jquery-rails
   jquery-ui-rails
   jquery-validation-rails
+  kaminari
   listen (~> 3.0.5)
   puma (~> 3.0)
   rails (~> 5.0.3)

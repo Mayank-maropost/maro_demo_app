@@ -16,4 +16,11 @@ $(document).ready(function () {
 	    form.submit();
 	   }
 	});
+	
+	$(".add_photo").on("click",function() {
+    	$('#myModal').on('hidden.bs.modal', function () {
+            $(this).find('form').trigger('reset');
+        })
+    });
+
 });

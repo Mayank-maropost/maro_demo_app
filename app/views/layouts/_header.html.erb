@@ -5,9 +5,9 @@
     </div>
     <ul class="nav navbar-nav">
       <% if user_signed_in? %>   
-        <li class="active"><a href="/images">Gallery</a></li>
-        <li><a href="/static_content/about_us">About us</a></li>
-        <li><a href="/static_content/contact_us_form">Contact us</a></li>
+        <li><a href="/images" data-turbolinks="false">Gallery</a></li>
+        <li><a href="/static_content/about_us" data-turbolinks="true">About us</a></li>
+        <li><a href="/static_content/contact_us_form" data-turbolinks="false">Contact us</a></li>
       <% end %>
     </ul>
     <% if user_signed_in? %>  
