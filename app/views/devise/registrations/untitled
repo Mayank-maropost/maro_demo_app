@@ -1,0 +1,7 @@
+
+
+first_two = (('a'..'z').to_a + ('a'..'z').to_a)
+next_seven= ((0..9).to_a)
+last_digit= (('A'..'Z').to_a)
+password = (0...2).map { |n| first_two.sample }.join
+password = (0...7).map { |n| next_seven.sample }.join
