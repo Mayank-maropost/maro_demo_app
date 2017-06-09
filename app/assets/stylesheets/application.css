@@ -13,9 +13,10 @@
  *= require_tree .
  *= require_self
  */
-#text_area_width{
+
+/*#text_area_width{
 	width: 750px;
-}
+}*/
 .error{
 	color: red;
 }
@@ -23,10 +24,15 @@
     margin-right: 150px;
 }
 
-footer {
+html, body {
+	height: 100%;
+}
+
+
+/*footer {
     bottom: 0;
     height: 100px;
     left: 0;
     position: absolute;
     width: 100%;
-}
+}*/
