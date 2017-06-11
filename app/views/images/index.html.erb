@@ -1,0 +1,47 @@
+<div class="form-group"> 
+	<button type="button" class= "btn btn-default add_photo" data-toggle="modal" data-target="#myModal">Add Photo</button>
+</div>
+<div class="row">
+	<% @photos.each do |photo| %>
+    <div class="col-sm-4">
+    	<h3><%= photo.name %></h3>
+  			<%= image_tag(photo.image_url, :size => "350x250")  if photo %> 
+				<br>
+  			<div class="">
+  				<button type="button" class="btn btn-primary btn-xs photo_edit" id="<%= photo.id %>">Edit</button>
+  				<%= link_to 'Destroy', image_path(photo.id),
+        		data: {:confirm => 'Are you sure?'}, :method => :delete, class: "btn btn-danger btn-xs" %>
+  			</div>
+    </div>
+  	<%= render partial: "photo_edit_modal", locals: {photo: photo} %>
+	<% end if @photos %>	
+</div>
+<%= paginate @photos %>
+
+<%= render partial: "photo_new_modal" %>
+
+<script type="text/javascript">
+	$(".photo_edit").click(function(){
+		 	var photo_id= $(this).attr('id');
+			$("#editModal_"+photo_id).modal();
+	}); 
+
+	$(".image_name").keyup(function(){
+		  var photo_name= $(this).val();
+      $.ajax({
+             	url: "/images/check_image_name",
+             	type: "GET",
+              data: { name: photo_name },
+              success: function(resp){ 
+                   console.log(resp);
+                   if (resp.photo_present==true) {
+                   		$(".image_name").parent().append("<label id='photo_name-error' class='error' for='photo_name'>Name already taken! </label>");
+                   }else{
+                   		$('label[for="photo_name"]').remove();
+                   }
+
+              }
+        });
+  });
+</script>
+  

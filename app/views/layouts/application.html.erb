@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>DemoProject</title>
+    <%= csrf_meta_tags %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => 'true'%>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => 'true'%>
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
+    <!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<!-- Latest compiled JavaScript -->
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  </head>
+
+   
+ 	<body>
+  		<%= render partial: "layouts/header" %>
+   	<div class="container">
+      <% flash.each do |name, msg| %>
+        <div class="alert alert-info alert-dismissable">
+          <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
+           </strong><%= msg %>
+        </div>
+      <% end %>
+      <%= yield %>
+        <%= render partial: 'layouts/footer' %> 
+    </div>
+  </body>
+</html>
