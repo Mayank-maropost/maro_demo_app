@@ -12,6 +12,11 @@
     </ul>
     <% if user_signed_in? %>  
       <div align="right">
+        <ul class="nav navbar-nav">
+          <li>
+            <%= link_to "Change your password", edit_user_path, data: { turbolinks: false } %>
+          </li>
+        </ul>  
         <%= link_to "Sign out", destroy_user_session_path, method: :delete , class: "btn btn-danger navbar-btn" %>
       </div>    
     <% else %>

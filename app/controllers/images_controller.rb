@@ -50,12 +50,23 @@ class ImagesController < ApplicationController
 		def check_image_name
 			@photo = Photo.find_by_name(params[:name])
 			if @photo
-				p "=====if"
-					render :json=> { photo_present: true }
+				render :json=> { photo_present: true }
 			else
-				p "else===="
-					render :json=> { photo_present: false }
+				render :json=> { photo_present: false }
 			end			
+		end
+
+		def import_images
+			begin
+     		@photo= Photo.import(params[:file])
+     		if @photo== false
+					redirect_to images_path, notice: "Name already taken!"
+				else	
+					redirect_to images_path, notice: "Photos imported."		
+				end
+			rescue
+     		redirect_to images_path, notice: "Invalid Csv file format!"		
+			end
 		end
 
 		private

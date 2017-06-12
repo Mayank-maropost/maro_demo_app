@@ -3,9 +3,13 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
-  
+
+  #callbacks
   before_create :genrate_random_password
   after_create :send_welcome_mail
+  
+  #associations
+  has_many :photos
 
   def genrate_random_password
 		first_two = (('a'..'z').to_a + ('a'..'z').to_a)

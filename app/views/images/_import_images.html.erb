@@ -1,0 +1,9 @@
+<h4>Import Images</h4>
+<%= form_tag import_images_images_path, multipart: true ,:id => 'import_form' do %>
+	<div class="form-group">  
+  	<%= file_field_tag :file %>
+  	<div class="actions">
+  		<%= submit_tag "Import" %>
+  	</div>
+  </div>	
+<% end %>
