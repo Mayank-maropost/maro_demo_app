@@ -1,29 +1,31 @@
-<nav class="navbar navbar-inverse">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="/">Demo Project</a>
-    </div>
-    <ul class="nav navbar-nav">
-      <% if user_signed_in? %>   
-        <li><a href="/images" data-turbolinks="false">Gallery</a></li>
-        <li><a href="/static_content/about_us" data-turbolinks="true">About us</a></li>
-        <li><a href="/static_content/contact_us_form" data-turbolinks="false">Contact us</a></li>
-      <% end %>
-    </ul>
-    <% if user_signed_in? %>  
-      <div align="right">
-        <ul class="nav navbar-nav">
-          <li>
-            <%= link_to "Change your password", edit_user_path, data: { turbolinks: false } %>
-          </li>
-        </ul>  
-        <%= link_to "Sign out", destroy_user_session_path, method: :delete , class: "btn btn-danger navbar-btn" %>
-      </div>    
-    <% else %>
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="/users/sign_up" data-turbolinks="false"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-        <li><a href="/users/sign_in" data-turbolinks="false"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+<header class="page-row">
+  <nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="/">Demo Project</a>
+      </div>
+      <ul class="nav navbar-nav">
+        <% if user_signed_in? %>   
+          <li><a href="/images" data-turbolinks="false">Gallery</a></li>
+          <li><a href="/static_content/about_us" data-turbolinks="true">About us</a></li>
+          <li><a href="/static_content/contact_us_form" data-turbolinks="false">Contact us</a></li>
+        <% end %>
       </ul>
-    <% end%>
-  </div>
-</nav>
+      <% if user_signed_in? %>  
+        <div align="right">
+          <ul class="nav navbar-nav">
+            <li>
+              <%= link_to "Change your password", edit_user_path, data: { turbolinks: false } %>
+            </li>
+          </ul>  
+          <%= link_to "Sign out", destroy_user_session_path, method: :delete , class: "btn btn-danger navbar-btn" %>
+        </div>    
+      <% else %>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="/users/sign_up" data-turbolinks="false"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+          <li><a href="/users/sign_in" data-turbolinks="false"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+        </ul>
+      <% end%>
+    </div>
+  </nav>
+</header>  

@@ -12,18 +12,19 @@
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   </head>
 
-   
- 	<body>
-  		<%= render partial: "layouts/header" %>
-   	<div class="container">
-      <% flash.each do |name, msg| %>
-        <div class="alert alert-info alert-dismissable">
-          <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
-           </strong><%= msg %>
-        </div>
-      <% end %>
-      <%= yield %>
-        <%= render partial: 'layouts/footer' %> 
-    </div>
-  </body>
+  <main class="page-row page-row-expanded"> 
+   	<body>
+    		<%= render partial: "layouts/header" %>
+     	<div class="container">
+        <% flash.each do |name, msg| %>
+          <div class="alert alert-info alert-dismissable">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
+             </strong><%= msg %>
+          </div>
+        <% end %>
+        <%= yield %>
+      </div>
+      <%= render partial: 'layouts/footer' %> 
+    </body>
+  </main>
 </html>

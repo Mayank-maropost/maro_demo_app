@@ -7,7 +7,7 @@
 	<% @photos.each do |photo| %>
     <div class="col-sm-4">
     	<h3><%= photo.name %></h3>
-  			<%= image_tag(photo.image_url, :size => "350x250")  if photo %> 
+  			<%= image_tag(photo.image_url, :size => "300x200")  if photo %> 
 				<br>
   			<div class="">
   				<button type="button" class="btn btn-primary btn-xs photo_edit" id="<%= photo.id %>">Edit</button>
@@ -22,3 +22,8 @@
 
 <%= render partial: "photo_new_modal" %>
 
+<script type="text/javascript">
+  $(document).ready(function() {
+    $("#footer").removeClass("navbar-fixed-bottom")
+  });
+</script>

@@ -10,7 +10,8 @@ class UsersController < ApplicationController
     if @user.update_with_password(user_params)
       # Sign in the user by passing validation in case their password changed
       #bypass_sign_in(@user)
-      redirect_to root_path
+      flash[:notice]= "Password changed successfully! You need to login again"
+      redirect_to new_user_session_path 
     else
       redirect_to edit_user_path, notice: @user.errors.full_messages.first
     end

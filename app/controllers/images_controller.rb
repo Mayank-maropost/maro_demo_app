@@ -57,16 +57,19 @@ class ImagesController < ApplicationController
 		end
 
 		def import_images
-			begin
+			#begin
+			p "======parmas===#{params[:file].inspect}"
      		@photo= Photo.import(params[:file])
-     		if @photo== false
-					redirect_to images_path, notice: "Name already taken!"
-				else	
-					redirect_to images_path, notice: "Photos imported."		
-				end
-			rescue
-     		redirect_to images_path, notice: "Invalid Csv file format!"		
-			end
+     		if @photo[:key]== "failed"
+					return redirect_to images_path, notice:  @photo[:message]
+			elsif	 @photo[:key]== "name_error"
+				return redirect_to images_path, notice:  @photo[:message]
+			else
+				return redirect_to images_path, notice:  @photo[:message]
+			end	
+			# rescue
+   #   			redirect_to images_path, notice: "Invalid Csv file format!"		
+			# end
 		end
 
 		private
