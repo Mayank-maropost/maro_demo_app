@@ -9,17 +9,18 @@
     	<h3><%= photo.name %></h3>
   			<%= image_tag(photo.image_url, :size => "300x200")  if photo %> 
 				<br>
-  			<div class="">
-  				<button type="button" class="btn btn-primary btn-xs photo_edit" id="<%= photo.id %>">Edit</button>
+  			<div class="actions" align="center">
+  				<button type="button" class="btn btn-primary btn-sm photo_edit" id="<%= photo.id %>">Edit</button>
   				<%= link_to 'Destroy', image_path(photo.id),
-        		data: {:confirm => 'Are you sure?'}, :method => :delete, class: "btn btn-danger btn-xs" %>
+        		data: {:confirm => 'Are you sure?'}, :method => :delete, class: "btn btn-danger btn-sm" %>
   			</div>
     </div>
   	<%= render partial: "photo_edit_modal", locals: {photo: photo} %>
 	<% end if @photos %>	
 </div>
-<%= paginate @photos %>
-
+<div class="form-group pagination_div">
+  <%= paginate @photos %>
+</div>
 <%= render partial: "photo_new_modal" %>
 
 <script type="text/javascript">

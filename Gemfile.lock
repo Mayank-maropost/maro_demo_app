@@ -123,6 +123,9 @@ GEM
     kaminari-activerecord (1.0.1)
       activerecord
       kaminari-core (= 1.0.1)
+    kaminari-bootstrap (3.0.1)
+      kaminari (>= 0.13.0)
+      rails
     kaminari-core (1.0.1)
     libv8 (3.16.14.19)
     listen (3.0.8)
@@ -244,6 +247,7 @@ DEPENDENCIES
   jquery-ui-rails
   jquery-validation-rails
   kaminari
+  kaminari-bootstrap
   listen (~> 3.0.5)
   puma (~> 3.0)
   rails (~> 5.0.3)

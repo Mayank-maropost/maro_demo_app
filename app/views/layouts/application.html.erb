@@ -13,8 +13,12 @@
   </head>
 
   <main class="page-row page-row-expanded"> 
-   	<body>
-    		<%= render partial: "layouts/header" %>
+    <% if controller.controller_name == 'images'  %>
+      	<body data-turbolinks="false">
+    <% else %>
+        <body >
+    <% end %>
+    <%= render partial: "layouts/header" %>
      	<div class="container">
         <% flash.each do |name, msg| %>
           <div class="alert alert-info alert-dismissable">
