@@ -8,20 +8,18 @@ require 'csv'
   validates :name, :uniqueness => true
 
   def self.import(file)
-  	p "====self=====#{file}"
   	response_hash= {}
   	count=0 
   	csv = CSV.open(file.path, :headers => true)
 		csv.read
 		headers= csv.headers
-		arr= ["name", "image_url"]
-    unless  headers== arr
-  		p "==unless======"
+		arr= ["name", "image_url"] 
+		reverse_arr = ["image_url", "name"]
+    unless  headers== arr || headers== reverse_arr
   		response_hash[:key]= "failed"
   		response_hash[:message]= "You are missing the header!"
 		  return response_hash
 		else  
-			p "elsseee"
 			CSV.foreach(file.path, headers: true, skip_blanks: true, skip_lines: /^(?:,\s*)+$/, header_converters: :symbol, encoding: "iso-8859-1:utf-8"	) do |row|
 	    	if (row[:name].present? && row[:image_url].present?)
 		    		@photo= Photo.new(name: row[:name], remote_image_url_url: row[:image_url])
@@ -30,11 +28,9 @@ require 'csv'
 		    	  	response_hash[:message]= "#{@photo.errors.full_messages.join(',')}! #{count} photos imported"
 		    	  	return response_hash
 	    	  	else
-	    	  		p "=====success"
 	    	  		count= count+1
 			 		  end		
 	    	else
-	    		p "==else==="
 	    	  response_hash[:key]= "failed"
 	    	  paramater= row[:image_url].blank? ? "image_url" : "name"
 	    	  response_hash[:message]= "You are missing the values of #{paramater}!  #{count} photos imported"
