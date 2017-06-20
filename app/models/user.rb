@@ -6,10 +6,11 @@ class User < ApplicationRecord
 
   #callbacks
   before_create :genrate_random_password
+  before_create :generate_access_token
   after_create :send_welcome_mail
   
   #associations
-  has_many :photos
+  has_many :photos, dependent: :destroy
 
   def genrate_random_password
 		first_two = (('a'..'z').to_a + ('a'..'z').to_a)
@@ -26,5 +27,13 @@ class User < ApplicationRecord
   def password_required?
   	false
 	end
+
+  private
+  #Generating access token for user before creating
+  def generate_access_token
+    begin
+      self.access_token = SecureRandom.hex
+    end while self.class.exists?(access_token: access_token)
+  end
    
 end

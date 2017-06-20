@@ -45,4 +45,22 @@ require 'csv'
 		  return response_hash
 		end  
 	end
+
+	def self.image_data(data)
+	    return nil unless data
+	    io = CarrierStringIO.new(Base64.decode64(data))
+	end
+end
+
+
+class CarrierStringIO < StringIO
+  def original_filename
+    # the real name does not matter
+    "photo.jpeg"
+  end
+
+  def content_type
+    # this should reflect real content type, but for this example it's ok
+    "image/jpeg"
+  end
 end

@@ -29,4 +29,18 @@ Rails.application.routes.draw do
     end
   end
 
+  # apis routes
+  namespace :apis do
+    resources :static_content, only: [:new] do
+      collection do 
+        post 'contact_us'
+      end 
+    end 
+    resources :users, only: [:create] 
+    resources :images, only:[:create, :show]
+  end  
+
+    # having created corresponding controller and action
+    get '*path', to: 'dashboard#error_404', via: :all
+
 end

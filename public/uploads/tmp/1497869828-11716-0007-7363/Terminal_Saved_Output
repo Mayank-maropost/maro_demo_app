@@ -1,0 +1,96 @@
+[vagrant@localhost ~]$ sudo sh -c "echo 'deb http://apt.postgresql.org/pub/repos/apt/ precise-pgdg main' > /etc/apt/sources.list.d/pgdg.list"
+sh: /etc/apt/sources.list.d/pgdg.list: No such file or directory
+[vagrant@localhost ~]$ 
+[vagrant@localhost ~]$ 
+[vagrant@localhost ~]$ clear
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[vagrant@localhost ~]$ sudo yum install postgresql-server postgresql-contrib
+Loaded plugins: fastestmirror
+Loading mirror speeds from cached hostfile
+ * base: mirror.nbrc.ac.in
+ * extras: mirror.nbrc.ac.in
+ * updates: mirror.nbrc.ac.in
+Package postgresql-contrib-9.2.18-1.el7.x86_64 already installed and latest version
+Resolving Dependencies
+--> Running transaction check
+---> Package postgresql-server.x86_64 0:9.2.18-1.el7 will be installed
+--> Finished Dependency Resolution
+
+Dependencies Resolved
+
+================================================================================
+ Package                  Arch          Version               Repository   Size
+================================================================================
+Installing:
+ postgresql-server        x86_64        9.2.18-1.el7          base        3.8 M
+
+Transaction Summary
+================================================================================
+Install  1 Package
+
+Total download size: 3.8 M
+Installed size: 16 M
+Is this ok [y/d/N]: y
+Downloading packages:
+postgresql-server-9.2.18-1.el7.x86_64.rpm                  | 3.8 MB   00:08     
+Running transaction check
+Running transaction test
+Transaction test succeeded
+Running transaction
+  Installing : postgresql-server-9.2.18-1.el7.x86_64                        1/1 
+  Verifying  : postgresql-server-9.2.18-1.el7.x86_64                        1/1 
+
+Installed:
+  postgresql-server.x86_64 0:9.2.18-1.el7                                       
+
+Complete!
+[vagrant@localhost ~]$ 
+[vagrant@localhost ~]$ 
+[vagrant@localhost ~]$ sudo postgresql-setup initdb
+Initializing database ... OK
+
+[vagrant@localhost ~]$ 
+[vagrant@localhost ~]$ 
+[vagrant@localhost ~]$ sudo vi /var/lib/pgsql/data/pg_hba.conf
+
+# ----------------------------------
+#
+# If you want to allow non-local connections, you need to add more
+# "host" records.  In that case you will also need to make PostgreSQL
+# listen on a non-local interface via the listen_addresses
+# configuration parameter, or via the -i or -h command line switches.
+
+
+
+# TYPE  DATABASE        USER            ADDRESS                 METHOD
+
+# "local" is for Unix domain socket connections only
+local   all             all                                     peer
+# IPv4 local connections:
+host    all             all             127.0.0.1/32            md5
+# IPv6 local connections:
+host    all             all             ::1/128                 md5
+# Allow replication connections from localhost, by a user with the
+# replication privilege.
+#local   replication     postgres                                peer
+#host    replication     postgres        127.0.0.1/32            ident
+kokok
+#host    replication     postgres        ::1/128                 ident
+-- INSERT --

@@ -96,13 +96,29 @@ $(document).ready(function () {
                 extension: "csv"
             }
         }
-    });
+  }); 
+
+  $(document).on("click",".photo_create",function(e) {
+  	 
+  	$('#photo_new_form').validate({
+        rules: {
+            'photo[image_url]': {
+                required: true,
+                accept: "jpg,png,jpeg,gif",
+            },
+            'photo[name]': {
+                required: true,
+            },    
+        }
+  	});
+
+  });
 
 	$(".add_photo").on("click",function() {
     	$('#myModal').on('hidden.bs.modal', function () {
             $(this).find('form').trigger('reset');
-      })
-  });
+      	})
+  	});
 
   jQuery.validator.addMethod("lettersonly", function(value, element) {
   		return this.optional(element) || /^[a-zA-Z\s]+$/.test(value);

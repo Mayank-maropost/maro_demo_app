@@ -16,11 +16,11 @@
 			  </div>
 			  <div class="form-group">
 			    <%= f.label :select_file, "Choose file" %>
-			    <%= f.file_field :image_url %>
+			    <%= f.file_field :image_url, accept: "jpg,png,jpeg,gif" %>
 			  </div>
         </div>
         <div class="modal-footer">
-        	 <%= f.submit "Submit", class: "btn btn-primary" %>
+        	 <%= f.submit "Submit", class: "btn btn-primary photo_create" %>
           <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
         </div>
         <% end %>
