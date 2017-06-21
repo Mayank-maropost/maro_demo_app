@@ -1,12 +1,11 @@
 class UserMailer < ApplicationMailer
 	default from: 'notifications@example.com'
    
-  def welcome_email(user)
-    @user = user
-    @password= user.password
+  def welcome_email(email,password)
+    @password= password
     @url  = 'http://192.168.3.3/users/sign_in'
-    @email= user.email
-    mail(to: @user.email, subject: 'Welcome to My Demo app')
+    @email= email
+    mail(to: @email, subject: 'Welcome to My Demo app')
   end
 
   def contact_us_mail name,email,desc

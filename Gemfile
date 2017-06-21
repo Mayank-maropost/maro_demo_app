@@ -42,6 +42,9 @@ gem 'carrierwave', '~> 1.0'
 gem 'kaminari'
 gem 'kaminari-bootstrap'
 gem 'bootstrap-sass', '~> 3.3.6'
+gem 'sidekiq'
+
+
 
 
 group :development, :test do

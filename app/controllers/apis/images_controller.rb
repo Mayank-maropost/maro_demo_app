@@ -12,7 +12,7 @@ class Apis::ImagesController < ApplicationController
 	        :responseCode => 200,
 	        :responseStatus=> "Success",
 	        :responseMessage => "Image created Successfully!",
-	        :photo=> photo.as_json(:only => [:id, :name, :image_url])
+	        :photo=> photo.as_json(:only => [:id, :name]).merge(image_url: photo.image_url.url)
 	      }
 		else
 			render_message 500,photo.errors.full_messages , "Failure"

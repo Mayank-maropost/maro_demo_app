@@ -42,5 +42,8 @@ Rails.application.routes.draw do
 
     # having created corresponding controller and action
     get '*path', to: 'dashboard#error_404', via: :all
+    post '*path', to: 'dashboard#error_404', via: :all
+    put '*path', to: 'dashboard#error_404', via: :all
+    delete '*path', to: 'dashboard#error_404', via: :all
 
 end

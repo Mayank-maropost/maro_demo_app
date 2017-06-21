@@ -21,7 +21,10 @@ class User < ApplicationRecord
   end
   
   def send_welcome_mail
-  	UserMailer.welcome_email(self).deliver
+    email= self.email
+    password= self.password
+  	#UserMailer.welcome_email(self).deliver
+    EmailWorker.perform_async(email,password)
   end
 
   def password_required?
