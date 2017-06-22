@@ -71,6 +71,11 @@ class ImagesController < ApplicationController
 			end
 		end
 
+		def image_count
+			photo_count = Photo.all.count
+			render :json=> { photo_count: photo_count }
+		end
+
 		private
 		def photo_params
 			params.require(:photo).permit(:name, :image_url)

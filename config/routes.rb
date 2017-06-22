@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     collection do
       get 'get_image_detail'
       get 'check_image_name'
+      get 'image_count'
       post 'import_images'
     end  
   end 

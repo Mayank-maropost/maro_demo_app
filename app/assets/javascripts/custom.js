@@ -131,27 +131,44 @@ $(document).ready(function () {
   });
 
 
- 	$(document).on("keyup",".image_name",function() {
+ $(document).on("keyup",".image_name",function() {
 		var photo_name= $(this).val();
-    $.ajax({
-       	url: "/images/check_image_name",
-       	type: "GET",
-        data: { name: photo_name },
-        success: function(resp){ 
-             console.log(resp);
-             if (resp.photo_present==true) {
-									if ($('label[name="photoname"]').length) {
-									}
-									else{
-										$(".image_name").parent().append("<label id='photo_name-error' class='error' name='photoname' for='photo_name'>Name already taken! </label>");
-									}
-             		
-             }else{
-             		$('label[for="photo_name"]').remove();
-             }
+	    $.ajax({
+	       	url: "/images/check_image_name",
+	       	type: "GET",
+	        data: { name: photo_name },
+	        success: function(resp){ 
+	             console.log(resp);
+	             if (resp.photo_present==true) {
+										if ($('label[name="photoname"]').length) {
+										}
+										else{
+											$(".image_name").parent().append("<label id='photo_name-error' class='error' name='photoname' for='photo_name'>Name already taken! </label>");
+										}
+	             		
+	             }else{
+	             		$('label[for="photo_name"]').remove();
+	             }
 
-        }
-      });
+	        }
+	      });
   });
+
+
+ 	 // $("#count_value").html( "<img src='/assets/loader1.jpg' width='4px' height='73px'>" );
+   $.ajax({
+	       	url: "/images/image_count",
+	       	type: "GET",
+	        data: { },
+	        success: function(resp){ 
+	             console.log(resp.photo_count);
+	             $(".image_counter").css("color","green");
+	             $("#count_value").html("<h2 align= 'center' id='count'>"+resp.photo_count+"</h2>")
+	          	$("#count_value").css("background-color","green");
+	        }
+	      });
+
+   
+
 
 });
