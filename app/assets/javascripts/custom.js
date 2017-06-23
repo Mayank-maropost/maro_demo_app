@@ -155,7 +155,6 @@ $(document).ready(function () {
   });
 
 
- 	 // $("#count_value").html( "<img src='/assets/loader1.jpg' width='4px' height='73px'>" );
    $.ajax({
 	       	url: "/images/image_count",
 	       	type: "GET",
@@ -168,7 +167,49 @@ $(document).ready(function () {
 	        }
 	      });
 
-   
-
-
 });
+
+// csv validation
+  $(document).on('change', '#csv_upload', function() {
+	    var ext;
+	    ext = $(this).val().split('.').pop().toLowerCase();
+	    console.log(this.files[0].size / 1024);
+	    csv_check = ext.indexOf("csv")
+	    console.log("csv"+csv_check)
+		
+			if (csv_check === 0){
+	      // console.log("in csv_check")
+	    }
+	    else{
+	      alert("Invalid format! Only csv are allowed.");
+	      $(this).val('');
+	    }    
+  });
+
+  
+  // image validation
+  $(document).on('change', '#image_upload', function() {
+    var ext;
+    ext = $(this).val().split('.').pop().toLowerCase();
+    console.log(this.files[0].size / 1024);
+    jpg_check = ext.indexOf("jpg")
+    jpeg_check = ext.indexOf("jpeg")
+    png_check = ext.indexOf("png")
+  
+    if (jpg_check === 0 || jpeg_check === 0 || png_check === 0 ){
+      console.log("111111")
+    }
+    else{
+      console.log("22222222")
+      alert("Invalid format! Only jpeg, jpg, png are allowed.");
+      $(this).val('');
+    }
+
+    // if ((this.files[0].size / 1024) > (1024 * 3)) {
+    //   alert('Invalid size, Please choose image below 3 Mb!');
+    //   $(this).val('');
+    // }
+
+
+  });
+

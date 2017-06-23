@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<!-- saved from url=(0033)http://maropost.dev/users/sign_in -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>DemoProject</title>
+    <meta name="csrf-param" content="authenticity_token">
+<meta name="csrf-token" content="HrDDi86UhCfu9s1dJQIRWD4nQNVwXUW1p6QHRJF6EHVYtewkzjStdoYyPBhPWpSd+PfIKrIgaUHnTVtAEhpUMQ==">
+    <link rel="stylesheet" media="all" href="./DemoProject_files/dashboard.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css" data-turbolinks-track="true">
+<link rel="stylesheet" media="all" href="./DemoProject_files/images.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css" data-turbolinks-track="true">
+<link rel="stylesheet" media="all" href="./DemoProject_files/static_content.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css" data-turbolinks-track="true">
+<link rel="stylesheet" media="all" href="./DemoProject_files/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css" data-turbolinks-track="true">
+<link rel="stylesheet" media="all" href="./DemoProject_files/application.self-1cd35984e3ebb13019072bebc5fb2ee13b2f14c48a49fe9ab0c49c2c2106c6d9.css" data-turbolinks-track="true">
+    <script src="./DemoProject_files/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js" data-turbolinks-track="true"></script>
+<script src="./DemoProject_files/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js" data-turbolinks-track="true"></script>
+<script src="./DemoProject_files/turbolinks.self-1d1fddf91adc38ac2045c51f0a3e05ca97d07d24d15a4dcbf705009106489e69.js" data-turbolinks-track="true"></script>
+<script src="./DemoProject_files/action_cable.self-5454023407ffec0d29137c7110917e1e745525ae9afbc05f52104c4cd6597429.js" data-turbolinks-track="true"></script>
+<script src="./DemoProject_files/cable.self-6e0514260c1aa76eaf252412ce74e63f68819fd19bf740595f592c5ba4c36537.js" data-turbolinks-track="true"></script>
+<script src="./DemoProject_files/dashboard.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js" data-turbolinks-track="true"></script>
+<script src="./DemoProject_files/images.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js" data-turbolinks-track="true"></script>
+<script src="./DemoProject_files/static_content.self-f99799d13af3776eb0b02d9f37daff25c5a1c904d1552bbf292dfc5cc6381ebc.js" data-turbolinks-track="true"></script>
+<script src="./DemoProject_files/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js" data-turbolinks-track="true"></script>
+<script src="./DemoProject_files/application.self-b89234cf2659d7fedea75bca0b8d231ad7dfc2f3f57fcbaf5f44ed9dc384137b.js" data-turbolinks-track="true"></script>
+    <script src="./DemoProject_files/jquery.validate.min.js"></script>
+    <!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet" href="./DemoProject_files/bootstrap.min.css">
+		<!-- Latest compiled JavaScript -->
+		<script src="./DemoProject_files/bootstrap.min.js"></script>
+  </head>
+
+  <body><main class="page-row page-row-expanded"> 
+   	
+    		<header class="page-row">
+  <nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="http://maropost.dev/">Demo Project</a>
+      </div>
+      <ul class="nav navbar-nav">
+      </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="http://maropost.dev/users/sign_up" data-turbolinks="false"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+          <li><a href="http://maropost.dev/users/sign_in" data-turbolinks="false"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+        </ul>
+    </div>
+  </nav>
+</header>  
+     	<div class="container">
+        <div class="container">
+<div class="form-group">
+  <center><h2>Log in</h2></center>
+</div>
+ <form class="form-horizontal" id="login_form" action="http://maropost.dev/users/sign_in" accept-charset="UTF-8" method="post" novalidate="novalidate"><input name="utf8" type="hidden" value="✓"><input type="hidden" name="authenticity_token" value="HrDDi86UhCfu9s1dJQIRWD4nQNVwXUW1p6QHRJF6EHVYtewkzjStdoYyPBhPWpSd+PfIKrIgaUHnTVtAEhpUMQ==">
+  <div class="form-group">
+    <label class="control-label col-sm-2" for="user_email">Email</label>
+    <div class="col-sm-10">
+      <input autofocus="autofocus" class="form-control" placeholder="Enter email" type="email" value="" name="user[email]" id="user_email">
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="control-label col-sm-2" for="user_password">Password</label>
+    <div class="col-sm-10"> 
+      <input autocomplete="off" class="form-control" placeholder="Enter password" type="password" name="user[password]" id="user_password">
+    </div>
+  </div>
+    <div class="form-group"> 
+      <div class="col-sm-offset-2 col-sm-10">
+        <div class="checkbox">
+          <label><input name="user[remember_me]" type="hidden" value="0"><input type="checkbox" value="1" name="user[remember_me]" id="user_remember_me"> Remember me</label>
+        </div>
+      </div>
+    </div>
+  <div class="form-group"> 
+    <div class="col-sm-offset-2 col-sm-10">
+      <input type="submit" name="commit" value="Log in" class="btn btn-default" data-disable-with="Log in">
+    </div>
+    <div class="col-sm-offset-2 col-sm-10">
+      
+  <a class="btn btn-primary btn-sm" data-turbolinks="false" href="http://maropost.dev/users/sign_up">Sign up</a><br>
+
+  <a class="btn btn-primary btn-sm" data-turbolinks="false" href="http://maropost.dev/users/password/new">Forgot your password?</a><br>
+
+
+
+
+    </div>
+  </div>
+</form></div>
+
+
+<!-- <h2>Log in</h2>
+
+  <div class="field">
+    <br />
+  </div>
+
+  <div class="field">
+    <br />
+  </div>
+
+    <div class="field">
+    </div>
+
+  <div class="actions">
+  </div>
+ -->
+
+
+      </div>
+      <!-- <footer class="footer">
+	  
+    <div class="container-fluid" style="border:20px;  height:10%; width:100%;" >
+        <h4 align= "center"> © 2017 Maropost Inc. All rights reserved. | <a href="/static_content/contact_us_form" data-turbolinks="false"> Contact Us </a> </h4>
+    </div>
+</footer> -->
+
+<!-- <div class="footer navbar-fixed-bottom" >
+    <div class="container-fluid">
+        <h4 align= "center"> © 2017 Maropost Inc. All rights reserved. | <a href="/static_content/contact_us_form" data-turbolinks="false"> Contact Us </a> </h4>
+    </div>
+</div>
+ -->
+<footer class=" footer">
+  <div class="container">
+      <div class="row">
+        <div class="col-sm-8 col-md-6">
+          <p align="center">© 2017 Maropost Inc. All rights reserved. | <a href="http://maropost.dev/static_content/contact_us_form" data-turbolinks="false"> Contact Us </a>  </p>
+        </div>
+
+      </div>
+  </div>
+</footer> 
+    
+  </main>
+
+</body></html>

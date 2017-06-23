@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col-6 col-md-4">
-    <h4>Add Images</h4> <br>
+    <h3>Add Images</h3> <br>
     <button type="button" class= "btn btn-default add_photo" data-toggle="modal" data-target="#myModal">Add Photo</button>
   </div>
   <div class="col-6 col-md-4">
@@ -8,11 +8,12 @@
   </div>
   <div class="col-6 col-md-4">
     <h4 style="color:yellow" class= "image_counter">Image Counter</h4>
-    <div id="count_value" style="width:79px;height:89px;border:1px solid black;position:absolute;top:103%;left:10%;padding:2px;"><img src='/assets/loader1.jpg' width="64" height="64" /><br>Loading..</div>
+    <div id="count_value" style="width:79px;height:89px;border:1px solid black;position:absolute;top:43%;left:48%;padding:2px;"><img src='/assets/loader3.gif' width="79" height="89" />
+    </div>
   </div>
 </div>
-
-<div class="row">
+<br>
+<div class="row image_index">
 	<% @photos.each do |photo| %>
   <% cache(photo, :expires_in => 5.minutes) do %>
     <div class="col-sm-4">

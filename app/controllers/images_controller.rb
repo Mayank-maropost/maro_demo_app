@@ -72,7 +72,8 @@ class ImagesController < ApplicationController
 		end
 
 		def image_count
-			photo_count = Photo.all.count
+			sleep 1
+			photo_count = Photo.count || 0
 			render :json=> { photo_count: photo_count }
 		end
 

@@ -1,6 +1,6 @@
 class DashboardController < ApplicationController
 	before_action :authenticate_user!, :except => [:error_404]
-    before_filter :is_json?, :only => [:error_404]
+    #before_filter :is_json?, :only => [:error_404]
 	def new
 	end
 
