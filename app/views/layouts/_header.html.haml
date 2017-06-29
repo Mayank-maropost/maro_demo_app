@@ -1,0 +1,30 @@
+%body
+  %header.page-row
+    %nav.navbar.navbar-inverse
+      .container-fluid
+        .navbar-header
+          %a.navbar-brand{:href => "/"} Demo Project
+        %ul.nav.navbar-nav
+          - if user_signed_in?
+            %li
+              %a{"data-turbolinks" => "false", :href => "/images"} Gallery
+            %li
+              %a{"data-turbolinks" => "true", :href => "/static_content/about_us"} About us
+            %li
+              %a{"data-turbolinks" => "false", :href => "/static_content/contact_us_form"} Contact us
+        - if user_signed_in?
+          %div{:align => "right"}
+            %ul.nav.navbar-nav
+              %li
+                = link_to "Change your password", edit_user_path, data: { turbolinks: false }
+            = link_to "Sign out", destroy_user_session_path, method: :delete , class: "btn btn-danger navbar-btn"
+        - else
+          %ul.nav.navbar-nav.navbar-right
+            %li
+              %a{"data-turbolinks" => "false", :href => "/users/sign_up"}
+                %span.glyphicon.glyphicon-user
+                Sign Up
+            %li
+              %a{"data-turbolinks" => "false", :href => "/users/sign_in"}
+                %span.glyphicon.glyphicon-log-in
+                Login

@@ -1,0 +1,16 @@
+= form_for(@user, :url => { :action => "update_password" }, html:{ id: "chage_password_form"} ) do |f|
+  .form-group
+    = f.label :current_password
+    %i (we need your current password to confirm your changes)
+    %br/
+    = f.password_field :current_password, class: "form-control"
+  .form-group
+    = f.label :password, "Password"
+    %br/
+    = f.password_field :password, :autocomplete => "off", class: "form-control"
+  .form-group
+    = f.label :password_confirmation
+    %br/
+    = f.password_field :password_confirmation, class: "form-control"
+  .action_container
+    = f.submit "Update", class: "btn btn-default"

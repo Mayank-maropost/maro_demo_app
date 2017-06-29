@@ -1,0 +1,18 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title DemoProject
+    = csrf_meta_tags
+    = stylesheet_link_tag    'application'#, media: 'all', 'data-turbolinks-track' => 'true'
+    = javascript_include_tag 'application'#, 'data-turbolinks-track' => 'true'
+  %body
+    %main.page-row.page-row-expanded
+      = render partial: "layouts/header"
+      .container
+        - flash.each do |name, msg|
+          .alert.alert-info.alert-dismissable
+            %a.close{"aria-label" => "close", "data-dismiss" => "alert", :href => "#"} ×
+            = msg
+        = yield
+      = render partial: 'layouts/footer'

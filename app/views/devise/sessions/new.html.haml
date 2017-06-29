@@ -1,0 +1,50 @@
+.container
+  .form-group
+    %center
+      %h2 Log in
+  = form_for(resource, as: resource_name, url: session_path(resource_name), :html => {:class => 'form-horizontal', id: "login_form"}) do |f|
+    .form-group
+      = f.label :email, class: "control-label col-sm-2"
+      .col-sm-10
+        = f.email_field :email, autofocus: true, class: "form-control", placeholder: "Enter email"
+    .form-group
+      = f.label :password, class: "control-label col-sm-2"
+      .col-sm-10
+        = f.password_field :password, autocomplete: "off", class: "form-control", placeholder: "Enter password"
+    - if devise_mapping.rememberable?
+      .form-group
+        .col-sm-offset-2.col-sm-10
+          .checkbox
+            %label
+              = f.check_box :remember_me
+              Remember me
+    .form-group
+      .col-sm-offset-2.col-sm-10
+        = f.submit "Log in", class: "btn btn-default"
+      .col-sm-offset-2.col-sm-10
+        = render "devise/shared/links"
+/
+  <h2>Log in</h2>
+  
+  <haml_silent>
+  </haml_silent>  <div class="field">
+  <haml_silent></haml_silent><br />
+  <haml_silent>
+  </haml_silent>  </div>
+  
+  <div class="field">
+  <haml_silent></haml_silent><br />
+  <haml_silent>
+  </haml_silent>  </div>
+  
+  <haml_silent>
+  </haml_silent>    <div class="field">
+  <haml_silent>
+  </haml_silent><haml_silent>
+  </haml_silent>    </div>
+  <haml_silent>
+  </haml_silent>
+  <div class="actions">
+  <haml_silent>
+  </haml_silent>  </div>
+  <haml_silent></haml_silent>

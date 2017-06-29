@@ -1,0 +1,6 @@
+%h3 Import Images
+= form_tag import_images_images_path, multipart: true ,:id => 'import_form' do
+  .form-group
+    = file_field_tag :file, id:"csv_upload"
+    .actions
+      = submit_tag "Import"

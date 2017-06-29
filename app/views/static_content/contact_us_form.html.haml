@@ -1,0 +1,19 @@
+.row
+  .col.col-md-8
+    = form_for :contact_us, url: contact_us_create_static_content_index_path, html:{id: "contact_us_form"} do |f|
+      .form-group
+        = f.label :name, "Name:"
+        = f.text_field :name, class: "form-control", placeholder: "Enter Name"
+      .form-group
+        = f.label :email, "Email address:"
+        = f.email_field :email, autofocus: true, class: "form-control", placeholder: "Enter email"
+      .form-group
+        = f.label :mobile_no, "Mobile No:"
+        = f.text_field :mobile_no,  class: "form-control", placeholder: "Enter mobile no"
+      .form-group
+        = f.label :description, "Description:"
+        = f.text_area :description,  class: "form-control", placeholder: "Enter Description",   :rows => 10, id: "text_area_width"
+      .form-group{:align => "center"}
+        %button.btn.btn-default{:type => "submit"} Submit
+  .col-6.col-md-4
+    %iframe{:allowfullscreen => "", :frameborder => "0", :height => "300", :src => "https://www.google.com/maps/embed/v1/place?key=AIzaSyDBvzq5WsidARhAZ0821MB1iAMTPnHiamI&q=155 University Ave Suite 1900, Toronto, ON M5H 3B7, Canada", :style => "border:0", :width => "500"}

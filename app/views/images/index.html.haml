@@ -1,0 +1,32 @@
+.row
+  .col-6.col-md-4
+    %h3 Add Images
+    %br/
+    %button.btn.btn-default.add_photo{"data-target" => "#myModal", "data-toggle" => "modal", :type => "button"} Add Photo
+  .col-6.col-md-4
+    = render partial: "import_images"
+  .col-6.col-md-4
+    %h4.image_counter{:style => "color:yellow"} Image Counter
+    #count_value{:style => "width:79px;height:89px;border:1px solid black;position:absolute;top:43%;left:48%;padding:2px;"}
+      %img{:height => "89", :src => "/assets/loader3.gif", :width => "79"}/
+%br/
+.row.image_index
+  - @photos.each do |photo|
+    - cache(photo, :expires_in => 5.minutes) do
+      .col-sm-4
+        %h3= photo.name
+        = image_tag(photo.image_url, :size => "300x200")  if photo
+        %br/
+        .actions{:align => "center"}
+          %button.btn.btn-primary.btn-sm.photo_edit{:id => "#{photo.id}", :type => "button"} Edit
+          = link_to 'Destroy', image_path(photo.id),                                                |
+            data: {:confirm => 'Are you sure?'}, :method => :delete, class: "btn btn-danger btn-sm" |
+      = render partial: "photo_edit_modal", locals: {photo: photo}
+  - end if @photos
+.form-group.pagination_div
+  = paginate @photos, options: { 'data-no-turbolink' => true}
+= render partial: "photo_new_modal"
+:javascript
+  $(document).ready(function() {
+    $("#footer").removeClass("navbar-fixed-bottom")
+  });

@@ -1,0 +1,18 @@
+.modal.fade{:id => "editModal_#{photo.id}", :role => "dialog"}
+  .modal-dialog
+    .modal-content
+      .modal-header
+        %button.close{"data-dismiss" => "modal", :type => "button"} ×
+        %h4.modal-title Edit Photo
+      .modal-body
+        = form_for photo, :url => {:action => "update", :id => photo.id, :controller => "images"}, html:{:multipart => true, id: "photo_edit_form"} do |f|
+          .form-group
+            = f.label :name, "Name"
+            = f.text_field :name, class: "form-control image_name", id: "edit_image_name"
+          .form-group
+            = f.label :select_file, "Choose file"
+            = f.file_field :image_url
+            = image_tag(f.object.image_url.present? ? f.object.image_url : "http://res.cloudinary.com/charu/image/upload/v1472115259/qwagaihkng3jtsjzwlcc.png" ,:width => 50, :height => 50)
+          .modal-footer
+            = f.submit "Submit", class: "btn btn-primary"
+            %button.btn.btn-danger{"data-dismiss" => "modal", :type => "button"} Cancel

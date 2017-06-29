@@ -1,0 +1,19 @@
+/ Modal
+#myModal.modal.fade{:role => "dialog"}
+  .modal-dialog
+    / Modal content
+    .modal-content
+      .modal-header
+        %button.close{"data-dismiss" => "modal", :type => "button"} ×
+        %h4.modal-title Add Photo
+      .modal-body
+        = form_for :photo, url: images_path, method: :post, html:{:multipart => true, id: "photo_new_form"} do |f|
+          .form-group
+            = f.label :name, "Name"
+            = f.text_field :name, class: "form-control"
+          .form-group
+            = f.label :select_file, "Choose file"
+            = f.file_field :image_url, accept: "jpg,png,jpeg,gif", id: "image_upload"
+          .modal-footer
+            = f.submit "Submit", class: "btn btn-primary photo_create"
+            %button.btn.btn-danger{"data-dismiss" => "modal", :type => "button"} Cancel

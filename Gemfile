@@ -43,7 +43,8 @@ gem 'kaminari'
 gem 'kaminari-bootstrap'
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'sidekiq'
-
+# gem 'haml'
+gem "haml-rails", "~> 0.9"
 
 
 
